@@ -3,12 +3,14 @@
 
 ## Links 
 Codelabs : https://codelabs-preview.appspot.com/?file_id=1FsFp8n3X6xz7IsCHB0NFCE-KWDJJl6qW_YntvJh2XEo#5
-Ariflow deploy :
-Streamlit+fastApi:
 
----
+Airflow deploy : https://dockerpipeline-618360345344.us-east1.run.app
 
-## 📌 Problem Statement
+Streamlit+fastApi: https://dockerpipeline-618360345344.us-east1.run.app
+
+video link : https://youtu.be/uRaUynX7a2M
+ 
+
 Traditional search and retrieval systems struggle with processing and extracting meaningful insights from unstructured data sources. Existing approaches often lack modularity, extensibility, and efficiency when handling large volumes of text, such as NVIDIA’s quarterly reports over the past five years. Additionally, manually computing embeddings and cosine similarity is computationally expensive, limiting scalability. This project aims to overcome these limitations by implementing a robust, automated RAG pipeline that integrates multiple PDF parsing methods, vector databases (Pinecone, ChromaDB), and advanced chunking strategies to optimize retrieval.
 ---
 
@@ -24,80 +26,50 @@ Traditional search and retrieval systems struggle with processing and extracting
 ---
 
 ## 🏗️ Architecture Diagram
-![AI Application Data Pipeline](https://github.com/Bigdata2025Team5/Assignment4/blob/main/Architecture_Diagram/ai_application_data_pipeline_llms.png?raw=true)
+![AI Application Data Pipeline](https://github.com/Bigdata2025Team5/DAMG7245_Team5_Assignment4/blob/dd602cd51efd57c7d7c9e2042b38a1fd1ee84e7b/Diagrams/architecture_diagram.png)
 
 ---
 
-## 🔑 Features & How to Run Locally
-Step 1: Clone the Repository
-Open a terminal or command prompt.
-Run the following command to clone the repository:
-git clone <repository_url>
-cd Assignment_4
-
-Step 2: Create a Virtual Environment
-Create and activate a virtual environment:
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-Step 3: Install Dependencies
-Install the required dependencies:
-pip install -r requirements.txt
-
-Step 4: Configure Environment Variables
-Create a .env file in the root directory.
-Add required credentials such as API keys for AWS, LLM’s (GPT-4o, Gemini, Claude, Grok, Deepseek), etc.
-AWS_ACCESS_KEY=<your_access_key>
-AWS_SECRET_KEY=<your_secret_key>
-
-Step 5: Run the Redis Server
-Start the Redis Server
-docker run -d --name redis -p 6379:6379 redis:latest
-The successful output should show “Redis”
-docker start redis
-
-Step 6: Run the Backend Server
-Start the FastAPI backend server:
-uvicorn backend.app:app --reload
-The API will be available at http://127.0.0.1:8000.
-
-Step 7: Run the Frontend Dashboard
-Start the Streamlit dashboard:
-streamlit run frontend/dashboard.py
-Open the displayed local URL to access the dashboard.
-
-Step 8: Use the Application
-Choose an LLM Model: Select an LLM model (e.g., GPT-4, Gemini, Claude) to use for summarization and Q&A.
-Upload a PDF or Enter a URL: Upload a PDF file or enter a website URL, then click "Process" to extract text and structured content.
-Summarize the Document: Click "Summarize" to generate and display a summary of the extracted content.
-Ask Questions on the Document: Enter a question, click "Ask Question," and view the AI-generated response.
-View Token Usage & Cost: Check token usage, cost per token, and total processing cost for each request.
-Download Processed Data: Select a processed document and click "Download Markdown" to retrieve the extracted content.
-View Logs & Task Status: Monitor the processing status of summarization and Q&A tasks, and wait for results if still processing.
-
+## 🔑 How to Use the Application
+Select a PDF Parser: Choose a PDF parser (Docling, Mistral OCR, PyMuPDF) for text extraction based on the document type.
+Upload a PDF: Upload an NVIDIA quarterly report, then click "Process" to extract and preprocess the document.
+Select a RAG Method: Choose a retrieval method:
+	Pinecone vector search
+	ChromaDB for advanced retrieval
+Choose a Chunking Strategy: Select how the document should be segmented:
+	Section-based chunking
+	Table-based chunking
+	Sliding window chunking
+Filter by Quarter: Specify the quarterly report data range to refine retrieval accuracy.
+Ask Questions on the Document: Enter a question related to the document, click "Ask Question," and receive an AI-generated response.
+Download Processed Data: Select a processed document and click "Download" to retrieve the extracted text and processed insights.
+ 
 ---
 
 ## 📂 Project Structure
 ```
-├── Architecture_Diagram
-│   └── ArchitectureDiagram_Ass4.ipynb
-    ├── ai_application_data_pipeline_llm.png
-├── POC
-│   ├── Streamlitpoc.py
-│   ├── docker-compose.yml
-├── api
-│   ├── Dockerfile
-│   ├── main.py
-│   ├── openSourcePdf.py
-│   ├── requirements.txt
-├── app
+├── Backend
+│   └── local_chormadb
+    ├── Dockerfile
+    ├── doclingextract.py
+    ├── main.py
+    ├── mistralextract.py
+    ├── opensource.py
+    ├── requirements.txt
+├── Diagrams
+│   ├── architecture_diagrams.pmg
+├── Documentation
+├── Frontend
 │   ├── Dockerfile
 │   ├── app.py
 │   ├── requirements.txt
-├── worker
-│   ├── Dockerfile
-│   ├── worker.py
-│   ├── requirements.txt
+├── POC
+├── airflow
+│   ├── dags
+│        ├── etl_pipeline_dag.py
+    ├── Dockerfile
+    ├── requirements.txt
+    ├── docker-compose.yml   
 ├── AiDisclosure.md
 ├── README.md
 
