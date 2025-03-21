@@ -1,0 +1,6 @@
+streamlit
+requests
+docling
+MarkItDown
+mistralai
+IPython
