@@ -8,7 +8,6 @@ Airflow deploy : https://dockerpipeline-618360345344.us-east1.run.app
 
 Streamlit+fastApi: https://dockerpipeline-618360345344.us-east1.run.app
 
-video link : https://youtu.be/uRaUynX7a2M
  
 
 Traditional search and retrieval systems struggle with processing and extracting meaningful insights from unstructured data sources. Existing approaches often lack modularity, extensibility, and efficiency when handling large volumes of text, such as NVIDIA’s quarterly reports over the past five years. Additionally, manually computing embeddings and cosine similarity is computationally expensive, limiting scalability. This project aims to overcome these limitations by implementing a robust, automated RAG pipeline that integrates multiple PDF parsing methods, vector databases (Pinecone, ChromaDB), and advanced chunking strategies to optimize retrieval.!
@@ -86,14 +85,5 @@ Download Processed Data: Select a processed document and click "Download" to ret
 - ChromaDB Documentation
 - FastAPI & Streamlit Documentation
 - AWS S3 Best Practices
-
----
-
-## 👥 Team Information
-| Name            | Student ID    | Contribution |
-|----------------|--------------|--------------|
-| **Pranjal Mahajan** | 002375449  | 33.33% |
-| **Srushti Patil**  | 002345025  | 33.33% |
-| **Ram Putcha**  | 002304724  | 33.33% |
 
 ---
